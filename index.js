@@ -1,107 +1,187 @@
 const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext('2d');
-// ctx.fillStyle = 'green';
-// ctx.fillRect(50, 100, 130, 50); // x, y, width, height:
+const cell = 17;
+const width = 255;
+const height = 255;
 
-// //one more figure
-// ctx.fillStyle = 'blue';
-// ctx.fillRect(20, 30, 100, 10);
+grid();
+drawHeart();
 
-// // clear 2 figures
-// ctx.clearRect(0, 0, 400, 200);
+function grid() {
+  ctx.strokeStyle = 'black';
 
-// ctx.strokeStyle = 'red';
-// ctx.lineWidth = '5'; // border-width
-// ctx.rect(100, 75, 100, 100); // without background
-// ctx.stroke();
-// ctx.fillStyle = 'orange'; // background color
-// ctx.fill();
+  function drawLine(startX, startY, endX, endY) {
+    ctx.moveTo(startX, startY);
+    ctx.lineTo(endX, endY);
+  }
 
-// draw line between 2 points:
-// ctx.beginPath(); // to make each line as independent element with own style
-// ctx.strokeStyle = 'blue';
-// ctx.lineWidth = '3';
-// ctx.moveTo(100, 50); // start point: x, y
-// ctx.lineTo(150, 150); // end point : x, y
-// ctx.stroke();
+  for (let i = 0; i <= 255; i += cell) {
+    drawLine(i, 0, i, 255);
+    drawLine(0, i, 255, i);
+  }
 
-// ctx.lineTo(250, 50);
-// ctx.stroke();
+  ctx.stroke();
+}
 
-// // independent line:
-// ctx.beginPath(); // to make each line as independent element with own style
-// ctx.strokeStyle = 'green';
-// ctx.lineWidth = '6';
-// ctx.moveTo(150, 50);
-// ctx.lineTo(100, 250); // end point : x, y
-// ctx.stroke();
+function drawCell(x, y, color) {
+  ctx.fillStyle = color;
+  ctx.fillRect(cell * x, cell * y, cell, cell);
+}
 
-// ctx.clearRect(0, 0, 400, 200); // clear all
+function drawHeart() {
+  const heartConfig = [
+    {
+      color: '#212121',
+      cells: [
+        [3, 2],
+        [4, 2],
+        [10, 2],
+        [11, 2],
+        [3, 2],
+        [2, 3],
+        [5, 3],
+        [9, 3],
+        [12, 3],
+        [1, 4],
+        [6, 4],
+        [8, 4],
+        [13, 4],
+        [1, 5],
+        [7, 5],
+        [13, 5],
+        [1, 6],
+        [13, 6],
+        [2, 7],
+        [3, 8],
+        [4, 9],
+        [5, 10],
+        [6, 11],
+        [7, 12],
+        [12, 7],
+        [11, 8],
+        [10, 9],
+        [9, 10],
+        [8, 11],
+      ],
+    },
+    {
+      color: 'red',
+      cells: [
+        [2, 6],
+        [3, 7],
+        [4, 8],
+        [5, 9],
+        [6, 10],
+      ],
+    },
+    {
+      color: 'orange',
+      cells: [
+        [2, 5],
+        [3, 6],
+        [4, 7],
+        [5, 8],
+        [6, 9],
+      ],
+    },
+    {
+      color: 'yellow',
+      cells: [
+        [2, 4],
+        [3, 5],
+        [4, 6],
+        [5, 7],
+        [6, 8],
+      ],
+    },
+    {
+      color: 'chartreuse',
+      cells: [
+        [3, 4],
+        [4, 5],
+        [5, 6],
+        [6, 7],
+      ],
+    },
+    {
+      color: 'aqua',
+      cells: [
+        [3, 3],
+        [4, 4],
+        [5, 5],
+        [6, 6],
+      ],
+    },
+    {
+      color: 'blue',
+      cells: [
+        [4, 3],
+        [5, 4],
+        [6, 5],
+      ],
+    },
+  ];
 
-// ctx.beginPath(); // to make each line as independent element with own style
-// ctx.strokeStyle = 'blue';
-// ctx.lineWidth = '3';
-// ctx.moveTo(50, 150);
-// ctx.lineTo(150, 50);
-// ctx.lineTo(200, 150);
-// ctx.lineTo(50, 150);
-// ctx.fillStyle = 'yellow';
-// ctx.stroke();
-// ctx.fill();
+  heartConfig.forEach(({ color, cells }) =>
+    cells.forEach(([x, y]) => drawCell(x, y, color)),
+  );
+  setDigitCells();
+}
+//
 
-// draw circle
-// const pi = Math.PI;
-// ctx.beginPath();
-// ctx.lineWidth = '3';
-// ctx.strokeStyle = 'blue';
-// ctx.fillStyle = 'red';
-// // pi - 180 degrees
-// ctx.arc(150, 100, 70, 0, 2 * pi, false); // center x, center y, radius, 0, true(проти годиинникової стрілки)/ false (за стрілкою)
-// ctx.stroke();
-// ctx.fill();
+function setDigitCells() {
+  ctx.fillStyle = '#212121';
+  ctx.font = '14px Arial';
+  ctx.fillText('1', cell * 7 + cell / 4, cell * 6 + cell / 1.21);
+  ctx.fillText('2', cell * 7 + cell / 4, cell * 7 + cell / 1.21);
+  ctx.fillText('3', cell * 7 + cell / 4, cell * 8 + cell / 1.21);
+  ctx.fillText('4', cell * 7 + cell / 4, cell * 9 + cell / 1.21);
+  ctx.fillText('5', cell * 7 + cell / 4, cell * 10 + cell / 1.21);
+  ctx.fillText('6', cell * 7 + cell / 4, cell * 11 + cell / 1.21);
 
-// ctx.beginPath();
-// ctx.lineWidth = '3';
-// ctx.strokeStyle = 'green';
-// ctx.fillStyle = 'yellow';
-// // pi - 180 degrees
-// ctx.arc(300, 100, 70, 0, pi, false); // center x, center y, radius, 0, true(проти годиинникової стрілки)/ false (за стрілкою)
-// ctx.stroke();
-// ctx.fill();
+  ctx.fillText('1', cell * 8 + cell / 4, cell * 5 + cell / 1.21);
+  ctx.fillText('2', cell * 8 + cell / 4, cell * 6 + cell / 1.21);
+  ctx.fillText('3', cell * 8 + cell / 4, cell * 7 + cell / 1.21);
+  ctx.fillText('4', cell * 8 + cell / 4, cell * 8 + cell / 1.21);
+  ctx.fillText('5', cell * 8 + cell / 4, cell * 9 + cell / 1.21);
+  ctx.fillText('6', cell * 8 + cell / 4, cell * 10 + cell / 1.21);
 
-// paint
-// let color = 'red';
-// const colorInput = document.querySelector('.color-input');
-// colorInput.addEventListener('input', function () {
-//   color = this.value;
-// });
-// canvas.onmousedown = function (e) {
-//   canvas.onmousemove = function (e) {
-//     let x = e.offsetX;
-//     let y = e.offsetY;
-//     ctx.fillRect(x, y, 7, 7);
-//     ctx.fillStyle = color;
-//     ctx.fill();
-//   };
-//   canvas.onmouseup = function () {
-//     canvas.onmousemove = null;
-//   };
-// };
+  ctx.fillText('1', cell * 9 + cell / 4, cell * 4 + cell / 1.21);
+  ctx.fillText('2', cell * 9 + cell / 4, cell * 5 + cell / 1.21);
+  ctx.fillText('3', cell * 9 + cell / 4, cell * 6 + cell / 1.21);
+  ctx.fillText('4', cell * 9 + cell / 4, cell * 7 + cell / 1.21);
+  ctx.fillText('5', cell * 9 + cell / 4, cell * 8 + cell / 1.21);
+  ctx.fillText('6', cell * 9 + cell / 4, cell * 9 + cell / 1.21);
 
-//spirograf
-// const R = 150;
-// const r = 120;
-// const d = 50;
-// let t = 0;
-// let timer;
-// function spirograf() {
-//   let x = (R - r) * Math.cos(t) + d * Math.cos(((R - r) * t) / r);
-//   let y = (R - r) * Math.sin(t) - d * Math.sin(((R - r) * t) / r);
-//   t = t + 0.2;
-//   ctx.fillRect(250 + x, 250 + y, 5, 5);
-//   timer = setTimeout(spirograf, 50);
-// }
+  ctx.fillText('1', cell * 10 + cell / 4, cell * 3 + cell / 1.21);
+  ctx.fillText('2', cell * 10 + cell / 4, cell * 4 + cell / 1.21);
+  ctx.fillText('3', cell * 10 + cell / 4, cell * 5 + cell / 1.21);
+  ctx.fillText('4', cell * 10 + cell / 4, cell * 6 + cell / 1.21);
+  ctx.fillText('5', cell * 10 + cell / 4, cell * 7 + cell / 1.21);
+  ctx.fillText('6', cell * 10 + cell / 4, cell * 8 + cell / 1.21);
 
-// spirograf();
+  ctx.fillText('1', cell * 11 + cell / 4, cell * 3 + cell / 1.21);
+  ctx.fillText('2', cell * 11 + cell / 4, cell * 4 + cell / 1.21);
+  ctx.fillText('3', cell * 11 + cell / 4, cell * 5 + cell / 1.21);
+  ctx.fillText('4', cell * 11 + cell / 4, cell * 6 + cell / 1.21);
+  ctx.fillText('5', cell * 11 + cell / 4, cell * 7 + cell / 1.21);
 
-//__________________Graph_______________
+  ctx.fillText('1', cell * 12 + cell / 4, cell * 4 + cell / 1.21);
+  ctx.fillText('2', cell * 12 + cell / 4, cell * 5 + cell / 1.21);
+  ctx.fillText('3', cell * 12 + cell / 4, cell * 6 + cell / 1.21);
+}
+
+canvas.onclick = function (e) {
+  let x = e.offsetX;
+  let y = e.offsetY;
+  let cellIndexByX = Math.floor(x / cell);
+  let cellIndexByY = Math.floor(y / cell);
+
+  ctx.fillRect(cellIndexByX * cell, cellIndexByY * cell, 17, 17);
+  ctx.fillStyle = 'tomato';
+  ctx.fill();
+
+  // canvas.onmouseup = function () {
+  //   canvas.onmousemove = null;
+  // };
+};
