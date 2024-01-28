@@ -141,10 +141,16 @@ colorInput.addEventListener('input', function () {
 });
 
 canvas.onclick = function (e) {
+  console.log('color: ', color);
+
   let x = e.offsetX;
+  console.log('x: ', x);
   let y = e.offsetY;
+  console.log('y: ', y);
   let cellIndexByX = Math.floor(x / cell);
   let cellIndexByY = Math.floor(y / cell);
+  const isInside = isInsideHeart(cellIndexByX, cellIndexByY);
+  console.log('isInside : ', isInside);
   if (isInsideHeart(cellIndexByX, cellIndexByY)) {
     ctx.fillStyle = color;
     ctx.fillRect(cellIndexByX * cell, cellIndexByY * cell, 17, 17);
