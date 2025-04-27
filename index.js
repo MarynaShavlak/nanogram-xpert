@@ -1,8 +1,8 @@
 const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext('2d');
-const cell = 17;
-const width = 255;
-const height = 255;
+const cell = 30;
+const width = 750;
+const height = 750;
 const heartConfig = [
   {
     color: '#212121',
@@ -96,6 +96,99 @@ const heartConfig = [
   },
 ];
 
+const owlConfig = [
+  {
+    color: '#0056AB',
+    cells: [
+        [3,1],
+      [4,1],
+      [5,1],
+      [6,1],
+      [11,1],
+      [12,1],
+      [13,1],
+      // [14,1],
+      // [15,1],
+      // [20,1],
+      // [21,1],
+      // [22,1],
+      // [23,1],
+
+      [4,2],
+      [5,2],
+      [6,2],
+      [7,2],
+      [9,2],
+      [10,2],
+      [11,2],
+      [12,2],
+      [13,2],
+
+      [4,3],
+      [5,3],
+      [6,3],
+      [7,3],
+      [8,3],
+      [9,3],
+      [10,3],
+      [11,3],
+      [12,3],
+      [13,3],
+
+      [5,4],
+      [6,4],
+      [7,4],
+      [8,4],
+      [9,4],
+      [10,4],
+      [11,4],
+      [12,4],
+      [13,4],
+
+      [4,5],
+      [5,5],
+      [6,5],
+      [7,5],
+      [8,5],
+      [9,5],
+      [10,5],
+      [11,5],
+      [12,5],
+      [13,5],
+
+      [4,6],
+      [5,6],
+      [6,6],
+      [7,6],
+
+      [11,6],
+      [12,6],
+      [13,6],
+
+      [3,7],
+      [4,7],
+      [5,7],
+      [6,7],
+
+
+
+      [12,7],
+      [13,7],
+
+    ]
+  },
+  {
+    color: '#69BEF7',
+    cells: [
+      [8,6],
+      [9,6],
+      [10,6],
+      [7,7],
+      [11,7],
+    ]
+  }
+]
+
 const notColoredCells = [
   [7, 6],
   [7, 7],
@@ -132,7 +225,17 @@ const notColoredCells = [
 ];
 
 grid();
-drawHeart();
+drawOwl();
+// drawHeart();
+
+
+function drawOwl() {
+  owlConfig.forEach(({ color, cells }) =>
+      cells.forEach(([x, y]) => drawCell(x, y, color)),
+  );
+  // setDigitCells();
+}
+
 
 let color;
 const colorInput = document.querySelector('.color-input');
@@ -148,7 +251,7 @@ canvas.onclick = function (e) {
   const isInside = isInsideHeart(cellIndexByX, cellIndexByY);
   if (isInsideHeart(cellIndexByX, cellIndexByY)) {
     ctx.fillStyle = color;
-    ctx.fillRect(cellIndexByX * cell, cellIndexByY * cell, 17, 17);
+    ctx.fillRect(cellIndexByX * cell, cellIndexByY * cell, 30, 30);
     ctx.fill();
   }
 };
@@ -161,9 +264,9 @@ function grid() {
     ctx.lineTo(endX, endY);
   }
 
-  for (let i = 0; i <= 255; i += cell) {
-    drawLine(i, 0, i, 255);
-    drawLine(0, i, 255, i);
+  for (let i = 0; i <= 750; i += cell) {
+    drawLine(i, 0, i, 750);
+    drawLine(0, i, 750, i);
   }
 
   ctx.stroke();
