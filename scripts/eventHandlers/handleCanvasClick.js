@@ -24,9 +24,10 @@ export function handleCanvasClick(e) {
 
     if (isInside && isCellInFigure) {
         fillCell(cellX, cellY);
-        // redrawCanvas();
+
     } else {
-        drawErrorCell(cellX, cellY)
+        fillCell(cellX, cellY, true);
+        drawErrorCell(cellX, cellY);
         console.log('Wrong cell!');
     }
 }

@@ -7,6 +7,7 @@ import {handleCanvasMouse, handleCanvasMouseLeave} from "./scripts/eventHandlers
 
 export let color = '#000000';
 export let filledCells = {};
+export let errorCells = {};
 const colorInput = document.querySelector('.color-input');
 colorInput.addEventListener('input', function () {
   color = this.value;
