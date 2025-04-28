@@ -36,6 +36,10 @@
 
 - Hovering over cells highlights the associated row and column.
 - Clicking on the canvas updates the puzzle by filling the selected cell.
+- 
+### Area Boundaries Restriction
+
+- It is not allowed to draw outside the available area set in the configuration.
 
 ### Error Highlighting
 
