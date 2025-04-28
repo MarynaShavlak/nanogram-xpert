@@ -1,8 +1,8 @@
-import {canvas, } from "./config/config.js";
-import {drawGrid} from "./draw/drawGrid.js";
-import {drawDigitTask} from "./draw/drawDigitTask.js";
-import {handleCanvasClick} from "./eventHandlers/handleCanvasClick.js";
-import {handleCanvasMouse, handleCanvasMouseLeave} from "./eventHandlers/handleCanvasMouse.js";
+import {canvas, } from "./scripts/config/config.js";
+import {drawGrid} from "./scripts/draw/drawGrid.js";
+import {drawDigitTask} from "./scripts/draw/drawDigitTask.js";
+import {handleCanvasClick} from "./scripts/eventHandlers/handleCanvasClick.js";
+import {handleCanvasMouse, handleCanvasMouseLeave} from "./scripts/eventHandlers/handleCanvasMouse.js";
 
 
 export let color;

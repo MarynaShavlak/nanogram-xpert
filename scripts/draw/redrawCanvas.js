@@ -1,7 +1,7 @@
 import {cell, ctx, height, width} from "../config/config.js";
 import {drawDigitTask} from "./drawDigitTask.js";
 import {drawGrid} from "./drawGrid.js";
-import {filledCells} from "../index.js";
+import {filledCells} from "../../index.js";
 
 export function redrawCanvas() {
     ctx.clearRect(0, 0, width, height);

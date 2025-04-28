@@ -1,4 +1,37 @@
 .canvas {
   width: 820px;
   height: 820px;
+
 }
+.canvas-container {
+  display: flex;
+  background-color: rgb(255,220,201);
+  border: 5px solid rgb(125,29,85);
+  border-radius: 10px;
+}
+
+body {
+  background-color: indianred;
+  background-image: url('./images/back.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  gap:20px;
+  padding: 30px;
+
+
+}
+.colorPicker-container {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 25px;
+}
+
