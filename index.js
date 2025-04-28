@@ -631,7 +631,7 @@ function grid() {
     vLineCount++;
     hLineCount++;
 
-    let verticalWidth = (vLineCount === 9) ? 4 : 1;
+    let verticalWidth = (vLineCount === 9 || vLineCount === 39) ? 4 : 1;
     let horizontalWidth = (hLineCount === 8) ? 4 : 1;
 
     drawLine(i, 0, i, 820, verticalWidth);   // vertical line
