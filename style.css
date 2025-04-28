@@ -1,9 +1,9 @@
-.canvas {
+.game__canvas{
   width: 820px;
   height: 820px;
 
 }
-.canvas-container {
+.game__canvas-container {
   display: flex;
   background-color: rgb(255,237,222);
   border: 5px solid rgb(125,29,85);
@@ -28,7 +28,7 @@ body {
 
 }
 
-.title {
+.container__title {
   font-size: 80px;
   margin: 0;
   margin-bottom: 20px;
@@ -43,7 +43,7 @@ body {
 
 
 
-.colorPicker-container {
+.game__color-picker-container {
   display: flex;
   flex-direction: column;
   gap:10px;
@@ -56,7 +56,7 @@ input {
   width: 80px;
   height: 80px;
 }
-.rules-button, .back-button {
+.game__rules-button, .back-button {
   text-decoration: none;
   font-family: "Winky Rough", sans-serif;
   font-size: 30px;
@@ -70,7 +70,7 @@ input {
   transition: background-color 0.1s ease, color 0.1s ease;
 }
 
-.rules-button:hover, .back-button:hover {
+.game__rules-button:hover, .back-button:hover {
   background-color: rgb(125,29,85);
   color: rgb(255,237,222);
 }
