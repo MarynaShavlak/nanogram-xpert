@@ -13,7 +13,7 @@ export function highlightRowAndColumn(colIndex, rowIndex) {
         for (let y = drawArea.y.min; y <= drawArea.y.max; y++) {
 
             if (x === colIndex || y === rowIndex) {
-                overlayCtx.fillStyle = 'rgba(255, 255, 0, 0.3)';
+                overlayCtx.fillStyle = 'rgba(243, 36, 66, 0.3)';
                 overlayCtx.fillRect(x * cell, y * cell, cell, cell);
             }
         }
