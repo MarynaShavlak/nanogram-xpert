@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nonogram Rules</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="container">
+    <h1 class="title">Nonogram Rules</h1>
+    <div class="rules-container">
+        <a class="back-button" href="./index.html" target="_blank">To the Game</a>
+        <ul class="rules__list">
+            <li class="rules__item">
+                <img class="rules__img" src="./images/rules/rules1.gif" alt="Step Rule 1" />
+                <div class="rules__descr">
+                    <p class="rules__text">Japanese crossword puzzles consist of a grid with empty cells, and there are numbers provided at the top and to the left of the grid for each row and column.</p>
+                    <p class="rules__text">Each number on the left indicates how many groups of consecutive filled cells are in the corresponding row, in the order they appear. </p>
+                    <p class="rules__text">There must be at least one empty cell between different groups. Similarly, the numbers at the top represent vertical groups.</p>
+                    <p class="rules__text">Let me show you how to solve Japanese crossword puzzles with a specific example. Let's look at the numbers at the top and to the left and identify the largest ones among them.</p>
+                </div>
+
+            </li>
+            <li class="rules__item">
+                <img class="rules__img" src="./images/rules/rules2.gif" alt="Step Rule 2" />
+                <div class="rules__descr">
+                    <p class="rules__text">In the second column, there is a single number 6. This means that there is a group of 6 unfilled cells in this column. If we consider the two extreme positions (starting from the top and from the bottom), this block will always fall under the filled area. Therefore, we can confidently fill in 5 cells.</p>
+                    <p class="rules__text">In the third column, the number is 4. Just like in the case of the second column, there is an area that must be filled, but only with one cell. If we consider the block's position at the very bottom and very top, we can see that the filled cell is located at the intersection.</p>
+                    <p class="rules__text">In all rows (and columns) where the number is greater than half the width (for columns, the height) of the Japanese crossword, there are such areas.</p>
+                </div>
+
+
+            </li>
+            <li class="rules__item">
+                <img class="rules__img" src="./images/rules/rules3.gif" alt="Step Rule 3" />
+                <div class="rules__descr">
+                    <p class="rules__text">Now let's look at the rows. In the second row, one cell is currently filled, and the numerical notation shows a single number 2. This means that another cell next to it must be filled. It can either be immediately to the left or right. Cells 4, 5, and 6 are definitely empty, so we mark them with crosses.</p>
+                    <p class="rules__text">In the fourth row, two cells must be filled first, and then one cell. The block of two filled cells is already marked, so we surround it with crosses on both sides. The single cell must be in the fifth or sixth position. Since we don't know exactly where, we can't place a cross there. Let's move on.</p>
+                    <p class="rules__text">In the fifth row, three cells must be filled first, and then one cell. No matter how these two blocks are arranged, the third cell from the left will definitely be filled.</p>
+                    <p class="rules__text">In the sixth row, there is the number 4. Since one cell is already filled, we can see that the block of four cells can only start either from the first or the second cell, and it cannot start from the extreme right position. Therefore, we mark it with a cross. Cells 3 and 4 are filled because they will be filled in any of the possible arrangements.</p>
+
+                </div>
+            </li>
+
+            <li class="rules__item">
+                <img class="rules__img" src="./images/rules/rules4.gif" alt="Step Rule 4" />
+                <div class="rules__descr">
+                    <p class="rules__text">Let's return to the columns. In the first and second columns, nothing has been clarified yet. In the third column, we can see that there should be a block of 4 cells, with 3 of them already filled. The fourth can only be either above or below the block. This means that cells 1 and 2 will be empty.</p>
+                    <p class="rules__text">In the fourth column, there should be a block of three cells. One is already filled. Since there is a cross in the fourth cell, we only have one possible arrangement for this block. We fill it in and mark the remaining empty cells in this column with crosses.</p>
+                    <p class="rules__text">In the sixth column, we cross out the first and last cells, as there are crosses in the second and second-to-last positions, and there can only be one block of two cells in this column. In the remaining three cells, the block can be placed in two ways, but in both cases, the central cell will be filled.</p>
+                </div>
+
+
+            </li>
+
+            <li class="rules__item">
+                <img class="rules__img" src="./images/rules/rules5.gif" alt="Step Rule 5" />
+                <div class="rules__descr">
+                    <p class="rules__text">We look at the second row and see that only one empty cell remains. We fill it in and get a block of two cells, as required by the condition.</p>
+                    <p class="rules__text">In the fourth row, we have already found both blocks (2 and 1), so we cross out the numbers in the legend and mark the empty fifth cell with a cross.</p>
+                    <p class="rules__text">In the fifth row, we have found the block of three cells. For the single cell, only one empty cell remains, and we fill it in.</p>
+                    <p class="rules__text">In the seventh row, for the numbers 3 and 1, there is only one possible arrangement left. We fill in the cells and cross out the others.</p>
+                </div>
+
+
+
+            </li>
+            <li class="rules__item">
+                <img class="rules__img" src="./images/rules/rules6.gif" alt="Step Rule 6" />
+                <div class="rules__descr">
+                    <p class="rules__text">In the first column, we have found the single cell. We cross out the adjacent cell.</p>
+                    <p class="rules__text">In the second column, for the sixth cell, there is only one free cell left, which we fill in.</p>
+                    <p class="rules__text">In the third column, we cross out the empty cell, as the block of four cells has already been found. In the fifth column, we fill in the second-to-last cell, as the last position already has one filled cell, and according to the top numerical legend, there should be a block of two cells.</p>
+                    <p class="rules__text">In the sixth column, we mark the third cell with a cross, as the only block has already been found.</p>
+                </div>
+
+            </li>
+            <li class="rules__item">
+                <img class="rules__img" src="./images/rules/rules7.gif" alt="Step Rule 7" />
+                <div class="rules__descr">
+                    <p class="rules__text">In the first row, we have found the single cell, so we cross out the remaining empty cells.</p>
+                    <p class="rules__text">In the third column, there is only one possible arrangement left for the numbers 2 and 1. We fill in the cells.</p>
+                    <p class="rules__text">There are no unfilled cells left, which means we have completely solved the Japanese crossword! A cute little kitten has emerged.</p>
+                </div>
+            </li>
+        </ul>
+
+
+
+    </div>
+
+</main>
+
+
+</body>
+</html>
