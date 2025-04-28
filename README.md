@@ -1,5 +1,11 @@
 # NanogramXpert
 
+## Demo
+
+
+https://github.com/user-attachments/assets/7c75c8e3-cad8-4976-8bd8-806b5a21e15c
+
+
 ## Live Website
 
 - 🌐 **Visit Here:** [NanogramXpert](https://marynashavlak.github.io/nanogram-xpert/)
