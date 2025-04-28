@@ -370,13 +370,33 @@ const digitsConfig= [
 
 const drawArea= {
   x: {min: 8, max: 37 },
-  y: {min: 8, max: 40 },
+  y: {min: 7, max: 40 },
 }
 
-drawDigitTask()
+const figureConfig = [
+  {
+    color: 'black',
+    cells: [
+        [13,7],
+        [14,7],
+        [13,8],
+        [14,8],
+        [15,8],
+    ]
+  }
+]
+
+drawDigitTask();
+drawFigure();
 grid();
 
 
+
+function drawFigure() {
+  figureConfig.forEach(({ color, cells }) =>
+    cells.forEach(([x, y]) => drawCell(x, y, color)),
+  );
+}
 
 function drawDigitTask()  {
     digitsConfig.forEach(({ color, cells }) =>
@@ -399,10 +419,21 @@ canvas.onclick = function (e) {
   let cellIndexByY = Math.floor(y / cell);
   console.log(cellIndexByX, cellIndexByY);
   const isInside = isDrawAvailable(cellIndexByX, cellIndexByY);
-  if (isDrawAvailable(cellIndexByX, cellIndexByY)) {
-    ctx.fillStyle = color;
+  console.log(isInside);
+  const figureCells = figureConfig[0].cells;
+  const isCellInFigure = figureCells.some(
+      ([figX, figY]) => {
+        console.log('fig', figX, figY);
+        console.log('cellIndex,', cellIndexByX, cellIndexByY);
+        return figX === cellIndexByX && figY === cellIndexByY
+      }
+  );
+
+  if (isInside && isCellInFigure) {
+    ctx.fillStyle = figureConfig[0].color;
     ctx.fillRect(cellIndexByX * cell, cellIndexByY * cell, 20, 20);
-    ctx.fill();
+  } else {
+    console.log('Wrong cell!');
   }
 };
 
@@ -453,12 +484,12 @@ function drawDigitCell(x, y, color, digit) {
   ctx.fillText(digit, centerX, centerY);
 }
 
-function drawHeart() {
-  heartConfig.forEach(({ color, cells }) =>
-    cells.forEach(([x, y]) => drawCell(x, y, color)),
-  );
-  setDigitCells();
-}
+// function drawHeart() {
+//   heartConfig.forEach(({ color, cells }) =>
+//     cells.forEach(([x, y]) => drawCell(x, y, color)),
+//   );
+//   setDigitCells();
+// }
 
 // function setDigitCells() {
 //   ctx.fillStyle = '#212121';
@@ -478,6 +509,7 @@ function drawHeart() {
 
 
 function isDrawAvailable(x, y) {
+
   return (
       x >= drawArea.x.min &&
       x <= drawArea.x.max &&
