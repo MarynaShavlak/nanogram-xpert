@@ -5,6 +5,7 @@ import {fillCell} from "../utils/ fillCell.js";
 import {checkCellInFigure} from "../utils/checkCellInFigure.js";
 import {getFigureCells} from "../utils/getFigureCells.js";
 import {getCellIndices} from "../utils/getCellIndices.js";
+import {drawErrorCell} from "../draw/drawErrorCell.js";
 
 export function handleCanvasClick(e) {
     const { x, y } = getClickCoordinates(e);
@@ -25,6 +26,7 @@ export function handleCanvasClick(e) {
         fillCell(cellX, cellY);
         // redrawCanvas();
     } else {
+        drawErrorCell(cellX, cellY)
         console.log('Wrong cell!');
     }
 }

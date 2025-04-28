@@ -5,7 +5,7 @@ import {handleCanvasClick} from "./scripts/eventHandlers/handleCanvasClick.js";
 import {handleCanvasMouse, handleCanvasMouseLeave} from "./scripts/eventHandlers/handleCanvasMouse.js";
 
 
-export let color;
+export let color = '#000000';
 export let filledCells = {};
 const colorInput = document.querySelector('.color-input');
 colorInput.addEventListener('input', function () {

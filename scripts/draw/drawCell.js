@@ -1,4 +1,4 @@
-import {ctx} from "../config/config.js";
+import {cell, ctx} from "../config/config.js";
 
 export function drawCell(x, y, color) {
     ctx.fillStyle = color;

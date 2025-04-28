@@ -35,3 +35,8 @@ body {
   font-size: 25px;
 }
 
+input {
+  width: 80px;
+  height: 80px;
+}
+
