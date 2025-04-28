@@ -1,8 +1,8 @@
 const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext('2d');
-const cell = 30;
-const width = 750;
-const height = 750;
+const cell = 20;
+const width =820;
+const height = 820;
 const heartConfig = [
   {
     color: '#212121',
@@ -96,99 +96,140 @@ const heartConfig = [
   },
 ];
 
-const owlConfig = [
+// const owlConfig = [
+//   {
+//     color: '#0056AB',
+//     cells: [
+//         [3,1],
+//       [4,1],
+//       [5,1],
+//       [6,1],
+//       [11,1],
+//       [12,1],
+//       [13,1],
+//       // [14,1],
+//       // [15,1],
+//       // [20,1],
+//       // [21,1],
+//       // [22,1],
+//       // [23,1],
+//
+//       [4,2],
+//       [5,2],
+//       [6,2],
+//       [7,2],
+//       [9,2],
+//       [10,2],
+//       [11,2],
+//       [12,2],
+//       [13,2],
+//
+//       [4,3],
+//       [5,3],
+//       [6,3],
+//       [7,3],
+//       [8,3],
+//       [9,3],
+//       [10,3],
+//       [11,3],
+//       [12,3],
+//       [13,3],
+//
+//       [5,4],
+//       [6,4],
+//       [7,4],
+//       [8,4],
+//       [9,4],
+//       [10,4],
+//       [11,4],
+//       [12,4],
+//       [13,4],
+//
+//       [4,5],
+//       [5,5],
+//       [6,5],
+//       [7,5],
+//       [8,5],
+//       [9,5],
+//       [10,5],
+//       [11,5],
+//       [12,5],
+//       [13,5],
+//
+//       [4,6],
+//       [5,6],
+//       [6,6],
+//       [7,6],
+//
+//       [11,6],
+//       [12,6],
+//       [13,6],
+//
+//       [3,7],
+//       [4,7],
+//       [5,7],
+//       [6,7],
+//       [12,7],
+//       [13,7],
+//
+//     ]
+//   },
+//   {
+//     color: '#69BEF7',
+//     cells: [
+//       [8,6],
+//       [9,6],
+//       [10,6],
+//       [7,7],
+//       [11,7],
+//     ]
+//   },
+//   {
+//     color: '#FFFBE7',
+//     cells: [
+//       [8,7],
+//       [9,7],
+//       [10,7],
+//     ]
+//   }
+// ]
+
+
+const digitsConfig= [
   {
-    color: '#0056AB',
+    color: 'red',
     cells: [
-        [3,1],
-      [4,1],
-      [5,1],
-      [6,1],
-      [11,1],
-      [12,1],
-      [13,1],
-      // [14,1],
-      // [15,1],
-      // [20,1],
-      // [21,1],
-      // [22,1],
-      // [23,1],
+        [8,3, 1],
+        [8,4, 2],
+        [8,5, 7],
+        [8,3, 1],
+        [8,6, 2],
 
-      [4,2],
-      [5,2],
-      [6,2],
-      [7,2],
-      [9,2],
-      [10,2],
-      [11,2],
-      [12,2],
-      [13,2],
+      [9,1, 1],
+      [9,2, 1],
+      [9,3, 1],
+      [9,4, 1],
+      [9,5, 1],
+      [9,6, 1],
 
-      [4,3],
-      [5,3],
-      [6,3],
-      [7,3],
-      [8,3],
-      [9,3],
-      [10,3],
-      [11,3],
-      [12,3],
-      [13,3],
+      [10,1, 1],
+      [10,2, 1],
+      [10,3, 1],
+      [10,4, 1],
+      [10,5, 1],
+      [10,6, 1],
 
-      [5,4],
-      [6,4],
-      [7,4],
-      [8,4],
-      [9,4],
-      [10,4],
-      [11,4],
-      [12,4],
-      [13,4],
+      [11,3, 9],
+      [11,4, 2],
+      [11,5, 7],
+      [11,6, 2],
 
-      [4,5],
-      [5,5],
-      [6,5],
-      [7,5],
-      [8,5],
-      [9,5],
-      [10,5],
-      [11,5],
-      [12,5],
-      [13,5],
-
-      [4,6],
-      [5,6],
-      [6,6],
-      [7,6],
-
-      [11,6],
-      [12,6],
-      [13,6],
-
-      [3,7],
-      [4,7],
-      [5,7],
-      [6,7],
-
-
-
-      [12,7],
-      [13,7],
+      [12,6, 11],
 
     ]
   },
-  {
-    color: '#69BEF7',
-    cells: [
-      [8,6],
-      [9,6],
-      [10,6],
-      [7,7],
-      [11,7],
-    ]
-  }
-]
 
+]
 const notColoredCells = [
   [7, 6],
   [7, 7],
@@ -225,17 +266,24 @@ const notColoredCells = [
 ];
 
 grid();
-drawOwl();
+drawDigitTask()
+// drawOwl();
 // drawHeart();
 
 
-function drawOwl() {
-  owlConfig.forEach(({ color, cells }) =>
-      cells.forEach(([x, y]) => drawCell(x, y, color)),
+// function drawOwl() {
+//   owlConfig.forEach(({ color, cells }) =>
+//       cells.forEach(([x, y]) => drawCell(x, y, color)),
+//   );
+//   // setDigitCells();
+// }
+
+function drawDigitTask()  {
+    digitsConfig.forEach(({ color, cells }) =>
+      cells.forEach(([x, y, digit]) => drawDigitCell(x, y, color, digit)),
   );
   // setDigitCells();
 }
-
 
 let color;
 const colorInput = document.querySelector('.color-input');
@@ -264,9 +312,9 @@ function grid() {
     ctx.lineTo(endX, endY);
   }
 
-  for (let i = 0; i <= 750; i += cell) {
-    drawLine(i, 0, i, 750);
-    drawLine(0, i, 750, i);
+  for (let i = 0; i <= 820; i += cell) {
+    drawLine(i, 0, i, 820);
+    drawLine(0, i, 820, i);
   }
 
   ctx.stroke();
@@ -275,6 +323,21 @@ function grid() {
 function drawCell(x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(cell * x, cell * y, cell, cell);
+}
+
+
+function drawDigitCell(x, y, color, digit) {
+  ctx.fillStyle = color;
+  ctx.fillRect(cell * x, cell * y, cell, cell);
+  ctx.font = '14px Arial';
+  ctx.fillStyle = 'black';
+  ctx.textAlign = 'center'; // <<< center horizontally
+  ctx.textBaseline = 'middle'; // <<< center vertically
+
+  const centerX = cell * x + cell / 2;
+  const centerY = cell * y + cell / 2;
+
+  ctx.fillText(digit, centerX, centerY);
 }
 
 function drawHeart() {
