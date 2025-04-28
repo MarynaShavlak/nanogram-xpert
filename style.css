@@ -36,7 +36,9 @@ body {
 }
 .game {
   display: flex;
+  /*justify-content: center;*/
   gap:20px;
+  /*max-width: 1200px;*/
 }
 
 .colorPicker-container {
@@ -52,4 +54,18 @@ input {
   width: 80px;
   height: 80px;
 }
+.rules-button {
+  font-family: "Winky Rough", sans-serif;
+  font-size: 30px;
+  padding: 10px 25px;
+  background-color: rgb(255,237,222);
+  border-radius: 40px;
+  height: fit-content;
+  cursor: pointer;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
 
+.rules-button:hover {
+  background-color: rgb(125,29,85);
+  color: rgb(255,237,222);
+}
