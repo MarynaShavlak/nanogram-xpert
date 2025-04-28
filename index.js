@@ -557,9 +557,9 @@ const notColoredCells = [
   [12, 5],
   [12, 6],
 ];
-
-grid();
 drawDigitTask()
+grid();
+
 // drawOwl();
 // drawHeart();
 
@@ -597,20 +597,46 @@ canvas.onclick = function (e) {
   }
 };
 
+// function grid() {
+//   ctx.strokeStyle = 'black';
+//
+//   function drawLine(startX, startY, endX, endY) {
+//     ctx.moveTo(startX, startY);
+//     ctx.lineTo(endX, endY);
+//   }
+//
+//   for (let i = 0; i <= 820; i += cell) {
+//
+//     drawLine(i, 0, i, 820);
+//     drawLine(0, i, 820, i);
+//   }
+//
+//   ctx.stroke();
+// }
 function grid() {
   ctx.strokeStyle = 'black';
 
-  function drawLine(startX, startY, endX, endY) {
+  function drawLine(startX, startY, endX, endY, width = 1) {
+    ctx.lineWidth = width;
+    ctx.beginPath();
     ctx.moveTo(startX, startY);
     ctx.lineTo(endX, endY);
+    ctx.stroke();
   }
+
+  let vLineCount = 0; // vertical line counter
+  let hLineCount = 0; // horizontal line counter
 
   for (let i = 0; i <= 820; i += cell) {
-    drawLine(i, 0, i, 820);
-    drawLine(0, i, 820, i);
-  }
+    vLineCount++;
+    hLineCount++;
 
-  ctx.stroke();
+    let verticalWidth = (vLineCount === 9) ? 4 : 1;
+    let horizontalWidth = (hLineCount === 8) ? 4 : 1;
+
+    drawLine(i, 0, i, 820, verticalWidth);   // vertical line
+    drawLine(0, i, 820, i, horizontalWidth); // horizontal line
+  }
 }
 
 function drawCell(x, y, color) {
