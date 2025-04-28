@@ -4,7 +4,7 @@ export function drawDigitCell(x, y, color, digit) {
     ctx.fillStyle = color;
     ctx.fillRect(cell * x, cell * y, cell, cell);
     ctx.font = '14px Arial';
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 

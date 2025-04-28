@@ -1,6 +1,6 @@
 export const digitsConfig= [
     {
-        color: 'red',
+        color: '#7D1D55',
         cells: [
             [8,3, 1],
             [8,4, 2],
