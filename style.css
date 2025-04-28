@@ -9,15 +9,28 @@
   border: 5px solid rgb(125,29,85);
   border-radius: 10px;
 }
-
 body {
   font-family: "Winky Rough", sans-serif;
   background-color: indianred;
+  margin: 0;
+}
+
+.game-body {
+
   background-image: url('./images/back.png');
   background-repeat: no-repeat;
   background-size: cover;
-  /*height: 100vh;*/
-  margin: 0;
+  height: 100vh;
+
+}
+
+
+.rules-body {
+  background-image: url('./images/back.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+
+
 }
 
 .container {
