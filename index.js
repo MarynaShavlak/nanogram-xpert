@@ -3,6 +3,7 @@ import {drawGrid} from "./scripts/draw/drawGrid.js";
 import {drawDigitTask} from "./scripts/draw/drawDigitTask.js";
 import {handleCanvasClick} from "./scripts/eventHandlers/handleCanvasClick.js";
 import {handleCanvasMouse, handleCanvasMouseLeave} from "./scripts/eventHandlers/handleCanvasMouse.js";
+import {drawFigure} from "./scripts/draw/drawFigure.js";
 
 
 export let color = '#000000';
@@ -16,6 +17,7 @@ colorInput.addEventListener('input', function () {
 
 drawDigitTask();
 drawGrid();
+
 
 canvas.addEventListener('click', handleCanvasClick);
 canvas.addEventListener('mousemove', handleCanvasMouse);
